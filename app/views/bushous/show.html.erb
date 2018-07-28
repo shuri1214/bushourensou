@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-4">
+		<div class="page-header">
+			<h1 class=""><%= @bushou.name %>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<%= link_to bushous_path, class: 'btn btn-sm btn-default' do %>
+				<span class="small glyphicon glyphicon-user"></span>一覧
+				<% end %>
+			</div>
+			<div class="col-md-6 text-right">
+			<% if twitterer_logged_in? %>
+				<%= link_to '編集', edit_bushou_path(@bushou), class: 'btn btn-xs btn-primary' %>
+				<%= link_to '削除', @bushou, method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: '真に削除されますかな？' } %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col-md-8">
+		<%= form_for(@impression, html: { class: 'form-inline' } ) do |f| %>
+			<%= f.hidden_field :bushou_id, :value=> @impression.bushou_id %>
+			<%# ----- エラ-表示 start---- %>
+			<%= render 'layouts/error_messages', model: f.object %>
+			<%# ----- エラー表示 end ---- %>
+  		<%= f.label :keyword, '連想ワード' %>
+  		<%= f.text_field :keyword,class: 'form-control' %>
+			<%= f.submit '投稿', class: 'btn btn-primary' %>
+		<% end %>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">今まで投稿された連想ワード</div>
+			<ul class="list-group">
+			<% @impressions.each do |impression| %>
+				<li class="list-group-item">
+					<%= impression.keyword %> 
+					<% if twitterer_logged_in? %>
+						<%= link_to 'このワードを削除' , impression_path(params: { impression: { id: impression.id } } ),class: 'small', method: :delete, data: { confirm: '真に削除してよろしいですかな？' } %>
+					<% end %>
+				</li>
+			<% end %>
+			</ul>
+		</div>
+	</div><!-- end of grid col -->
+</div><!-- end of grid row -->

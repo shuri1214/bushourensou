@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="page-header">
+      <h1 class=""><span class="small glyphicon glyphicon-edit"></span><%= @bushou.name %></h1>
+		</div>
+   	<%= link_to bushous_path, class: 'btn btn-sm btn-default' do %>
+		<span class="small glyphicon glyphicon-user"></span>一覧
+		<% end %>
+    <%= link_to bushou_path(@bushou), class: 'btn btn-sm btn-default' do %>
+       <span class="small glyphicon glyphicon-info-sign"></span>
+        この武将
+    <% end %>
+  </div>
+
+	<div class="col-md-8">
+		<%= render 'form', bushou: @bushou %>
+	</div><!-- end col -->
+</div><!-- end row -->

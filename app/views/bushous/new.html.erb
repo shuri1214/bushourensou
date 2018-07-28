@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="page-header">
+      <h1 class=""><span class="small glyphicon glyphicon-asterisk"></span>新規武将</h1>
+		</div>
+    <%= link_to bushous_path, class: 'btn btn-sm btn-default' do %>
+		<span class="small glyphicon glyphicon-user"></span>一覧
+    <% end %>
+  </div>
+
+  <div class="col-md-8">
+		<%= render 'form', bushou: @bushou %>
+		<p><span class="text-warning glyphicon glyphicon-warning-sign"></span> 新規登録すると同時にtweetされます。</p>
+	</div><!-- end col -->
+</div><!-- end row -->

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="page-header">
+      <h1 class=""><i class="far fa-comments"></i>武将連想検索</h1>
+		</div>
+		<%= link_to bushous_path, class: 'btn btn-sm btn-default' do %>
+			<span class="small glyphicon glyphicon-user"></span>一覧
+		<% end %>
+  </div>
+
+
+	<div class="col-md-8">
+		<form accept-charset="UTF-8" class="form-inline">
+			<p>
+				<input type="text" name="search" id="search" placeholder="検索語を入力" class="form-control" />
+       	<input type="button" value="検索" class="btn btn-primary btn-search" data-disable-with="検索" />
+			</p>
+		</form>
+		<div class="panel panel-default">
+			<div class="panel-heading">検索結果</div>
+			<div class="panel-body">
+				<small>入力：</small><span id="search_word"><% if !@search.nil? %><%= @search %><% end %></span>
+			</div>
+			<div class="list-group">
+			<% if !@results.nil? %>
+				<%  @results.each do |result| %>
+  			<div class="list-group-item"><%= result.keyword %>
+					（
+					<%= link_to  bushou_path(result.bushouid), class: '' do %>
+						<%= result.name %>
+       			<span class="glyphicon glyphicon-info-sign"></span>
+					<% end %>
+					）
+				</div>
+				<%  end %>
+			<% end %>
+			</div>
+		</div>
+	</div><!-- end of grid col -->
+</div><!-- end of grid row -->
+
+<%# 検索用jsファイル読み込む  %>
+<%= javascript_include_tag 'application','search_help.js' %>
