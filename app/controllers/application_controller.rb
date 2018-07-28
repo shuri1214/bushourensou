@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_twitterer, :twitterer_logged_in?
+  helper_method :current_twitterer, :twitterer_logged_in?, :admin_user?
 
   private
 
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   def twitterer_logged_in?
     !!session[:twitter_user_id]
   end
+
+	def admin_user?
+		twitterer_logged_in? && session[:is_admin]
+	end
 
   def authenticate
     return if twitterer_logged_in?

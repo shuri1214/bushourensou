@@ -11,7 +11,7 @@
 				<% end %>
 			</div>
 			<div class="col-md-6 text-right">
-			<% if twitterer_logged_in? %>
+			<% if admin_user? %>
 				<%= link_to '編集', edit_bushou_path(@bushou), class: 'btn btn-xs btn-primary' %>
 				<%= link_to '削除', @bushou, method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: '真に削除されますかな？' } %>
 			<% end %>
@@ -37,7 +37,7 @@
 			<% @impressions.each do |impression| %>
 				<li class="list-group-item">
 					<%= impression.keyword %> 
-					<% if twitterer_logged_in? %>
+					<% if admin_user? %>
 						<%= link_to 'このワードを削除' , impression_path(params: { impression: { id: impression.id } } ),class: 'small', method: :delete, data: { confirm: '真に削除してよろしいですかな？' } %>
 					<% end %>
 				</li>
