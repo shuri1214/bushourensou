@@ -28,7 +28,7 @@
 			<%= render 'layouts/error_messages', model: f.object %>
 			<%# ----- エラー表示 end ---- %>
   		<%= f.label :keyword do %>
-				<i class="far fa-comments"></i>連想ワード
+				<i class="far fa-comments"></i>連想語
 			<% end %>
   		<%= f.text_field :keyword,class: 'form-control' %>
 			<%= f.submit '投稿', class: 'btn btn-primary' %>
@@ -37,7 +37,7 @@
 		<% end %>
 
 		<div class="panel panel-default">
-			<div class="panel-heading">今まで投稿された連想ワード</div>
+			<div class="panel-heading">この武将に関する他の連想語</div>
 			<ul class="list-group">
 			<% @impressions.each do |impression| %>
 				<li class="list-group-item">
