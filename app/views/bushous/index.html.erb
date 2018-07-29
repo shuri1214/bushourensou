@@ -1,16 +1,19 @@
 <div class="row">
   <div class="col-md-4">
     <div class="page-header">
-      <h1 class=""><span class="icon-japan-kabuto-w"></span>登録済武将</h1>
+      <h1 class=""><span class="icon-japan-kabuto-w"></span>武将一覧</h1>
 		</div>
 			<% if twitterer_logged_in? %>
-				<%= link_to '新規武将登録', new_bushou_path, class: 'btn btn-xs pull-right btn-primary' %>
+				<%= link_to new_bushou_path, class: 'btn btn-xs pull-right btn-primary' do %>
+					<span class="small glyphicon glyphicon-asterisk"></span>
+					新規武将登録
+				<% end %>
 			<% end %>
 	</div>
 	<div class="col-md-8">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h1 class="panel-title">一覧</h1>
+				<h1 class="panel-title">登録済一覧</h1>
 			</div>
 			<div class="list-group">
   			<% @bushous.each do |bushou| %>

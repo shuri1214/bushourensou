@@ -33,7 +33,7 @@ Use <span class="icon-japan-kabuto"></span> */
   content: "\e900";
   color: #9a9a9a;
 }
-.icon-japan-kabuto:hover {
+a:hover .icon-japan-kabuto:before {
   color: #fff;
 }
 
@@ -41,4 +41,7 @@ Use <span class="icon-japan-kabuto"></span> */
 .icon-japan-kabuto-w:before {
   content: "\e900";
   color: #4a4a4a;
+}
+a:hover .icon-japan-kabuto-w:before {
+  color: #5a5a5a;
 }
