@@ -24,9 +24,10 @@ class BushousController < ApplicationController
 			# success case
 			flash[:success] = '武将登録できましたぞ！'
 			# Twitter投稿
-			tweetmessage = @bushou.name + 'を新規に登録しました.：' + bushou_url( @bushou.id )
-			tweet_post( tweetmessage )
-
+			if params[:is_tweet]
+				tweetmessage = @bushou.name + 'を新規に登録しました.：' + bushou_url( @bushou.id )
+				tweet_post( tweetmessage )
+			end
 			redirect_to @bushou
 		else
 			flash.now[:danger] = '殿オオォォォオ!?申し訳ござらんッ!!'
@@ -41,6 +42,11 @@ class BushousController < ApplicationController
 	def update
 		if @bushou.update(bushou_params)
       flash[:success] = '武将更新しましたぞ！'
+      # Twitter投稿
+      if params[:is_tweet]
+        tweetmessage = @bushou.name + 'に更新しました.：' + bushou_url( @bushou.id )
+        tweet_post( tweetmessage )
+      end
       redirect_to @bushou
 		else
       flash.now[:danger] = '更新できなんだ・・・かたじけない・・・'
@@ -53,7 +59,7 @@ class BushousController < ApplicationController
 			flash[:success] = '消しましたぞ・・・'
 			redirect_to bushous_url
 		else
-			# ToDo test 依存関係が出た時とか、複数名が削除したいとか、DBが落ちた時とか?
+			# ToDo test 依存関係が出た時とか、落ちた時とか?
 			flash[:danger] = '消えぬか。何事ぞ。'
 			redirect_to @bushou
 		end

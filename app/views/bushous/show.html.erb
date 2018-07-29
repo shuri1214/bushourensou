@@ -32,6 +32,8 @@
 			<% end %>
   		<%= f.text_field :keyword,class: 'form-control' %>
 			<%= f.submit '投稿', class: 'btn btn-primary' %>
+			<%= check_box_tag :is_tweet,true,{:checked => "checked"} %>
+			<%= label_tag :is_tweet do %><i class="fab fa-twitter"></i>Tweet<% end %>
 		<% end %>
 
 		<div class="panel panel-default">

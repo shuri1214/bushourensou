@@ -20,20 +20,20 @@
 					<% end %></li>
     		<% if twitterer_logged_in? %>
     			<li class="dropdown">
-      			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+      			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-id-card"></i><span class="caret"></span></a>
       			<ul class="dropdown-menu">
     					<li><%= link_to new_bushou_path do %>
 								<span class="small glyphicon glyphicon-asterisk"></span>新規武将登録
 							<% end %></li>
       				<li><%= link_to logout_path do %>
-								<span class="small glyphicon glyphicon-log-out"></span>ログアウト
+								<i class="fab fa-twitter"></i>ログアウト
 							<% end %></li>
       			</ul>
     			</li>
 					<li><img class="media-object img-rounded img-responsive" src="<%= current_twitterer.image_url %>" alt="">
 					</li>
 				<% else %>
-					<li><%= link_to 'ログイン(Twitter認証)', '/auth/twitter/' %></li>
+					<li><%= link_to '/auth/twitter/' do %><i class="fab fa-twitter"></i>ログイン<% end %></li>
 				<% end %>	
         </ul>
       </div>
