@@ -23,7 +23,7 @@
 				<%  @results.each do |result| %>
   			<div class="list-group-item"><%= result.keyword %>
 					（
-					<%= link_to  bushou_path(result.bushouid), class: '' do %>
+					<%= link_to bushou_path(result.bushouid), class: '' do %>
 						<%= result.name %>
        			<span class="glyphicon glyphicon-info-sign"></span>
 					<% end %>
