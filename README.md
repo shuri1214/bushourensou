@@ -1,24 +1,17 @@
-# README
+# About BushouRensou
+デプロイ後のサービスは <a href="http://bushourensou.herokuapp.com/" target="_blank">武将連想</a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+＊メモレベルで残しておきます
 
-Things you may want to cover:
+## Ruby version
+ruby 2.3.0 / Rails 5.0.7 で作成
 
-* Ruby version
+## Twitter認証を使う場合
+dotenvを使っています。手順は
 
-* System dependencies
+1 Twitter Appllication Management で APIキーとAPIシークレットキーを取得
 
-* Configuration
+1 .env ファイルをアプリケーションのルートディレクトリに作成し、 TWITTER_APP_ID（APIキー）・TWITTER_APP_SECRET(APIシークレットキー)として各値を設定
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 管理者機能を作る場合
+管理者にする人のtwitter UID を 管理者TBLに登録
